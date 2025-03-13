@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Responsivo</title>
+    <style>
+        :root {
+            --font-size-small: 14px;
+            --font-size-medium: 16px;
+            --font-size-large: 18px;
+            
+            --spacing-small: 8px;
+            --spacing-medium: 12px;
+            --spacing-large: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            padding: var(--spacing-large);
+        }
+
+        .form-container {
+            background: white;
+            padding: var(--spacing-large);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        h2 {
+            font-size: var(--font-size-large);
+            margin-bottom: var(--spacing-medium);
+            text-align: center;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: var(--spacing-medium);
+        }
+
+        input {
+            width: 100%;
+            padding: var(--spacing-medium);
+            padding-left: 35px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: var(--font-size-medium);
+        }
+
+        input:focus {
+            border-color: #4A90E2;
+            outline: none;
+        }
+
+        .form-group::before {
+            content: "👤";
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: var(--font-size-medium);
+            color: #888;
+        }
+
+        .form-group:nth-child(2)::before {
+            content: "🔒";
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: var(--spacing-medium);
+            border: none;
+            border-radius: 5px;
+            font-size: var(--font-size-medium);
+            cursor: pointer;
+            color: white;
+        }
+
+        .btn-submit {
+            background-color: #4A90E2;
+        }
+
+        .btn-clear {
+            background-color: #F5A623;
+        }
+
+        button:hover {
+            position: relative;
+        }
+
+        button::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        button:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --font-size-small: 12px;
+                --font-size-medium: 14px;
+                --font-size-large: 16px;
+                
+                --spacing-small: 6px;
+                --spacing-medium: 10px;
+                --spacing-large: 14px;
+            }
+
+            .form-container {
+                width: 100%;
+                max-width: none;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: var(--spacing-small);
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Nome de Usuário" required>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Senha" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="btn-submit">Enviar</button>
+                <button type="reset" class="btn-clear">Limpar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
